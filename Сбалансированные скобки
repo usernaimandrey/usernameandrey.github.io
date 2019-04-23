@@ -1,0 +1,36 @@
+const areBracketsBalanced = (str) => {
+  if (str.length % 2 !== 0) {
+    return false;
+  }
+  if (str[str.length - 1] === '(') {
+    return false;
+  }
+  if (str.length === 2) {
+    return true;
+  }
+  if (str === ' ') {
+    return true;
+  }
+  if (str[0] === ')') {
+    return false;
+  }
+  if (str[str.length - 2] === '(') {
+    return false;
+  }
+  let left = '';
+  let right = '';
+  for (let i = 0; i <= str.length; i += 1) {
+    if (str[i] === '(') {
+      left += str[i];
+    } else if (str[i] === ')') {
+      right += str[i];
+    }
+  }
+  if (left.length === right.length) {
+    return true;
+  }
+  return false;
+};
+export default areBracketsBalanced;
+
+end
